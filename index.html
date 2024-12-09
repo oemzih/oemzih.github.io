@@ -11,9 +11,10 @@
     <meta property="og:url" content="https://vipsmt.store">
     <title>𝗩𝗜𝗣 𝗦𝘂𝗺𝗮𝘁𝗿𝗮 | 𝗦𝗲𝗹𝗳 𝗢𝗿𝗱𝗲𝗿 𝟭𝟱%</title>
     <!-- Link to Favicon -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
     <!-- <link rel="icon" type="image/x-icon" href="/favicon.ico"> -->
     <!--<link rel="icon" href="/assets/vipsmt.png" type="image/x-icon">-->
-    <link rel="shortcut icon" href="https://nexus.groups.id/images/favicon.ico" />
+    <!--<link rel="shortcut icon" href="https://nexus.groups.id/images/favicon.ico" />-->
     <!-- <link rel="icon" href="https://i.ibb.co.com/xCZZbNM/Picsart-24-12-03-16-01-48-684.jpg" type="image/x-icon"> -->
     <!-- <link rel="icon" href="https://i.ibb.co.com/LYVCPGc/432200756-1022660239319144-273902655791217922-n.jpg" type="image/x-icon"> -->
     <!-- Bootstrap CSS -->
@@ -275,6 +276,51 @@
         </table> 
     </div>
     <script>
+    // Fungsi untuk memeriksa keberadaan favicon
+    function checkFavicon() {
+    var head = document.getElementsByTagName('head')[0];
+    var link = document.createElement('link');
+    link.rel = 'icon';
+    link.href = 'favicon.ico'; // Ganti dengan path favicon Anda
+    link.onerror = function() {
+    console.error('Favicon tidak ditemukan atau terjadi kesalahan.');
+    // Tampilkan pesan error kepada pengguna, misalnya dengan menggunakan alert atau modal
+    alert('Terjadi kesalahan pada favicon. Silakan hubungi administrator.');
+    };
+    head.appendChild(link);
+    }
+    // Panggil fungsi saat halaman selesai dimuat
+    window.onload = checkFavicon;
+    // Fungsi untuk mengganti favicon jika terjadi error
+    function handleFaviconError() {
+    var link = document.querySelector('link[rel="icon"]');
+    link.onerror = function() {
+    link.href = 'favicon.png'; // Ganti dengan path favicon default Anda
+    };
+    }
+    window.onload = handleFaviconError;
+    // Fungsi untuk menampilkan loading indicator
+    function showLoadingIndicator() {
+    // Tambahkan elemen loading indicator ke halaman
+    var loadingIndicator = document.createElement('div');
+    loadingIndicator.classList.add('loading'); // Sesuaikan dengan kelas CSS Anda
+    document.body.appendChild(loadingIndicator);
+    }
+    // Fungsi untuk menyembunyikan loading indicator
+    function hideLoadingIndicator() {
+    var loadingIndicator = document.querySelector('.loading');
+    if (loadingIndicator) {
+    loadingIndicator.remove();
+    }
+    }
+    // ... (kode untuk memeriksa favicon seperti di contoh sebelumnya)
+    link.onload = function() {
+    hideLoadingIndicator();
+    };
+    link.onerror = function() {
+    hideLoadingIndicator();
+    // Tampilkan pesan error atau ganti favicon dengan default
+    };
     // Function dcopy
     function preventCopy(event) {
     event.preventDefault();

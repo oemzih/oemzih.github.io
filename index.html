@@ -23,6 +23,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <!-- Custom CSS -->
     <style>
+        .loading {
+      /* Gaya untuk loading indicator */
+    }
+    #error-message {
+      /* Gaya untuk pesan error */
+    }
         body {
             font-family: 'Roboto', sans-serif;
             background: linear-gradient(135deg, #f7f7f7, #f7f7f7);
@@ -153,6 +159,7 @@
     </style>    
 </head>
 <body>
+    <div id="error-message"></div>
     <div class="container">
         <h1 class="mb-4">CHEAT PB VIP Sumatra</h1>
         <p class="lead mb-4"> <p><b>❄️ DESEMBER WINTER ❄️</b></p>Order Cheat Dapetin Diskon 15% ! Minimal Pembelian Paket 7 Hari Kamu Juga Bisa Dapetin Bonus Cash/Char PB Juga lhoo!</p>
@@ -281,7 +288,7 @@
     var head = document.getElementsByTagName('head')[0];
     var link = document.createElement('link');
     link.rel = 'icon';
-    link.href = 'favicon.ico'; // Ganti dengan path favicon Anda
+    link.href = '/favicon.ico'; // Ganti dengan path favicon Anda
     link.onerror = function() {
     console.error('Favicon tidak ditemukan atau terjadi kesalahan.');
     // Tampilkan pesan error kepada pengguna, misalnya dengan menggunakan alert atau modal
@@ -314,13 +321,13 @@
     }
     }
     // ... (kode untuk memeriksa favicon seperti di contoh sebelumnya)
-    link.onload = function() {
-    hideLoadingIndicator();
-    };
     link.onerror = function() {
     hideLoadingIndicator();
-    // Tampilkan pesan error atau ganti favicon dengan default
+    link.href = '/favicon.png';
+    var errorMessage = document.getElementById('error-message');
+    errorMessage.textContent = 'Favicon tidak dapat dimuat. Menggunakan favicon default.';
     };
+    // Tampilkan pesan error atau ganti favicon dengan default
     // Function dcopy
     function preventCopy(event) {
     event.preventDefault();

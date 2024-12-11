@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Premium Web Hosting</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+
+    .card {
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      width: 300px;
+      margin: 0 auto;
+    }
+
+    .price {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .features {
+      list-style: none;
+      padding: 0;
+    }
+
+    .discount {
+      color: green;
+      font-size: 18px;
+    }
+
+    .commission {
+      color: blue;
+      font-size: 18px;
+    }
+
+    .button {
+      background-color: #4CAF50;
+      border: none;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h2>Premium Web Hosting</h2>
+    <p>Fitur lengkap untuk buat dan kelola website</p>
+    <p class="price">Rp39.900/bln</p>
+    <ul class="features">
+      <li>100 Website</li>
+      <li>~25.000 Kunjungan Bulanan</li>
+      <li>100 GB NVMe Storage</li>
+      <li>400.000 File dan Direktori (Inode)</li>
+    </ul>
+    <p class="discount">Klien membayar <span style="text-decoration: line-through;">Rp478.800</span> <span style="color: green;">Rp383.040</span> (-20%)</p>
+    <p class="commission">Komisi Anda: Rp76.608</p>
+    <button class="button">Ajak Teman</button>
+  </div>
+
+  <script>
+    // Bagian ini untuk JavaScript jika Anda ingin menambahkan interaktivitas
+    // Misalnya, ketika tombol "Ajak Teman" diklik
+    const button = document.querySelector('.button');
+    button.addEventListener('click', () => {
+      // Tambahkan aksi yang ingin dilakukan ketika tombol diklik
+      alert('Anda telah mengklik tombol Ajak Teman');
+    });
+  </script>
+</body>
+</html>

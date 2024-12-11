@@ -38,7 +38,7 @@
     <!--<span class="colored-text">-->
     <span class="rainbowText">
     <span class="code-highlight">
-    𓂸 XEDDXFEMWBJF</span> Mega HP 10% 3d <br>
+    𓂸 <button onclick="revealText()">XEDDXFEMWBJF</button></span> Mega HP 10% 3d <br>
     <span class="code-highlight">
     𓂸 LBNBHXX95UKR</span> C.Python Puppy 3d <br>
     <span class="code-highlight">
@@ -77,6 +77,13 @@
     </footer>
         
     <script>
+    // Sensor teks
+    function revealText() {
+    const paragraphs = document.getElementsByTagName("p");
+    for (let i = 0; i < paragraphs.length; i++) {
+    paragraphs[i].style.display = "transparent";
+    }
+    }
     // Fungsi untuk memastikan audio terus bermain saat halaman di-refresh
     const audio = document.getElementById('myAudio');
     window.addEventListener('load', () => {

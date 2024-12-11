@@ -1,40 +1,116 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>TopUp Game Murah</title>
+    <title>Game Dinosaurus Mario</title>
     <style>
-        /* Gaya CSS untuk mengatur tampilan, sesuaikan sesuai kebutuhan */
-        .container {
-            text-align: center;
+        body {
+            overflow: hidden;
         }
-        .button {
-            padding: 10px 20px;
-            background-color: #4CAF50; /* Warna hijau */
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
+        #game {
+            position: relative;
+            width: 600px;
+            height: 200px;
+            border: 1px solid black;
+        }
+        #dino {
+            position: absolute;
+            bottom: 0;
+            width: 50px;
+            height: 50px;
+            background-color: green;
+        }
+        .obstacle {
+            position: absolute;
+            bottom: 0;
+            width: 20px;
+            height: 50px;
+            background-color: red;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>TopUp Game Murah <span style="color: blue;">&#9989;</span></h1>
-        <p>Untuk Claim Hadiah Minimal Pembelian Silahkan Kontak Manual Pada Kolom Tabel</p>
-        <table>
-            <tr>
-                <td>TopUp Sat Set</td>
-                <td><button class="button">Disini</button></td>
-            </tr>
-            <tr>
-                <td>Kontak Manual</td>
-                <td><button class="button">Disini</button></td>
-            </tr>
-        </table>
-        <p>&copy; 2024 Reseller +44.</p>
+    <div id="game">
+        <div id="dino"></div>
     </div>
     <script>
-        // Kode JavaScript di sini (jika diperlukan)
+    // Mengambil elemen HTML
+const game = document.getElementById('game');
+const dino = document.getElementById('dino');
+
+// Variabel untuk mengatur permainan
+let dinoX = 20;
+let dinoY = 150;
+let gravity = 0.9;
+let velocity = 0;
+let isJumping = false;
+let gameInterval;
+
+// Fungsi untuk membuat rintangan
+function createObstacle() {
+    const obstacle = document.createElement('div');
+    obstacle.classList.add('obstacle');
+    obstacle.style.left = game.offsetWidth + 'px';
+    game.appendChild(obstacle);
+
+    let obstacleLeft = parseInt(obstacle.style.left);
+
+    const moveObstacle = setInterval(() => {
+        obstacleLeft -= 5;
+        obstacle.style.left = obstacleLeft + 'px';
+
+        // Jika dinosaurus menabrak rintangan
+        if (
+            dinoX + dino.offsetWidth >= obstacleLeft &&
+            dinoX <= obstacleLeft + obstacle.offsetWidth &&
+            dinoY + dino.offsetHeight >= obstacle.offsetTop
+        ) {
+            clearInterval(gameInterval);
+            alert('Game Over!');
+        }
+
+        // Jika rintangan keluar dari layar
+        if (obstacleLeft + obstacle.offsetWidth < 0) {
+            game.removeChild(obstacle);
+            clearInterval(moveObstacle);
+        }
+    }, 10);
+}
+
+// Fungsi untuk melompat
+function jump() {
+    if (!isJumping) {
+        velocity = -15;
+        isJumping = true;
+    }
+}
+
+// Loop utama permainan
+gameInterval = setInterval(() => {
+    // Gravitasi
+    velocity += gravity;
+    dinoY += velocity;
+    dino.style.bottom = dinoY + 'px';
+
+    // Cek apakah dinosaurus menyentuh tanah
+    if (dinoY >= 150) {
+        dinoY = 150;
+        velocity = 0;
+        isJumping = false;
+    }
+
+    // Membuat rintangan secara acak
+    if (Math.random() < 0.01) {
+        createObstacle();
+    }
+}, 20);
+
+// Event listener untuk tombol spasi
+document.addEventListener('keydown', (event) => {
+    if (event.code === 'Space') {
+        jump();
+    }
+});
+
     </script>
 </body>
 </html>

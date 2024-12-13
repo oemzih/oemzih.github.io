@@ -154,23 +154,6 @@
             background-repeat: no-repeat;
             background-position: center;
             }
-            footer {
-            text-align: center;
-            background-color: #f1f1f1;
-            padding: 10px;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-            }
-            .footer-center {
-            text-align: center;
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background-color: #d9d7d7; /* Sesuaikan warna latar belakang */
-            padding: 10px;
-            }
           }
         }
     </style>    
@@ -179,7 +162,7 @@
     <div id="error-message"></div>
     <div class="container">
         <h1 class="mb-4">CHEAT PB VIP Sumatra</h1>
-        <p class="lead mb-4"> <p><b>❄️ 𝗗𝗘𝗦𝗘𝗠𝗕𝗘𝗥 𝗪𝗜𝗡𝗧𝗘𝗥 ❄️</b></p>Order Cheat Dapetin Diskon 10% ! Minimal Pembelian Paket 14+5 Hari Kamu Juga Bisa Dapetin Bonus Char/Cash PB Juga! ＞u＜</p>
+        <p class="lead mb-4"> <p><b>❄️ 𝗗𝗘𝗦𝗘𝗠𝗕𝗘𝗥 𝗪𝗜𝗡𝗧𝗘𝗥 ❄️</b></p>Order Cheat Dapetin Diskon 10% ! Minimal Pembelian Paket 18+6 Hari Kamu Juga Bisa Dapetin Bonus Char/Cash PB Juga! ＞u＜</p>
         <table class="table table-striped table-bordered">
             <thead class="text-center">
                 <tr>
@@ -312,12 +295,12 @@
     var head = document.getElementsByTagName('head')[0];
     var link = document.createElement('link');
     link.rel = 'icon';
-    link.href = '/favicon.ico'; // Ganti dengan path favicon Anda
+    link.href = 'favicon.ico'; // Ganti dengan path favicon Anda
     link.onerror = function() {
     console.error('Favicon tidak ditemukan atau terjadi kesalahan.');
     // ... (kode untuk memeriksa favicon seperti di contoh sebelumnya)
     hideLoadingIndicator();
-    link.href = '/favicon.png';
+    link.href = 'favicon.png';
     var errorMessage = document.getElementById('error-message');
     errorMessage.textContent = 'Favicon tidak dapat dimuat. Menggunakan favicon default.';
     };
@@ -373,24 +356,6 @@
     function showAlert() {
     alert("Oh yeah babyy🥵");
     }
-    // Fungsi untuk memeriksa ukuran layar dan mengatur posisi footer
-    function centerFooter() {
-    const footer = document.querySelector('footer');
-    if (!footer) {
-    const newFooter = document.createElement('footer');
-    newFooter.classList.add('footer-center');
-    newFooter.textContent = '© 2023 Reseller'; // Ganti teks copyright sesuai keinginan
-    document.body.appendChild(newFooter);
-    }
-    if (window.innerWidth > 768) {
-    footer.classList.add('footer-center');
-    } else {
-    footer.classList.remove('footer-center');
-    }
-    }
-    // Panggil fungsi saat halaman dimuat dan saat ukuran jendela berubah
-    window.addEventListener('load', centerFooter);
-    window.addEventListener('resize', centerFooter);
     //const footer = document.querySelector('footer');
     //const year = new Date().getFullYear();
     //footer.textContent = `© ${year} 𝗥𝗲𝘀𝗲𝗹𝗹𝗲𝗿 +44.`;

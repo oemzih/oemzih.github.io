@@ -24,11 +24,11 @@
     <!-- Custom CSS -->
     <style>
         .loading {
-      /* Gaya untuk loading indicator */
-    }
-    #error-message {
-      /* Gaya untuk pesan error */
-    }
+        /* Gaya untuk loading indicator */
+        }
+        #error-message {
+        /* Gaya untuk pesan error */
+        }
         body {
             font-family: 'Roboto', sans-serif;
             background: linear-gradient(135deg, #f7f7f7, #f7f7f7);
@@ -161,6 +161,15 @@
             position: fixed;
             bottom: 0;
             width: 100%;
+            }
+            .footer-center {
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: #d9d7d7; /* Sesuaikan warna latar belakang */
+            padding: 10px;
             }
           }
         }
@@ -384,6 +393,27 @@
     "name": "VIP Sumatra"
     }
     }
+    // Fungsi untuk memeriksa ukuran layar dan mengatur posisi footer
+function centerFooter() {
+  const footer = document.querySelector('footer');
+  if (!footer) {
+    const newFooter = document.createElement('footer');
+    newFooter.classList.add('footer-center');
+    newFooter.textContent = '© 2023 Reseller'; // Ganti teks copyright sesuai keinginan
+    document.body.appendChild(newFooter);
+  }
+
+  if (window.innerWidth > 768) {
+    footer.classList.add('footer-center');
+  } else {
+    footer.classList.remove('footer-center');
+  }
+}
+
+// Panggil fungsi saat halaman dimuat dan saat ukuran jendela berubah
+window.addEventListener('load', centerFooter);
+window.addEventListener('resize', centerFooter);
+
     </script>
 
     <!-- Bootstrap JS, Popper.js, and jQuery -->

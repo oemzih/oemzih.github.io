@@ -1,32 +1,42 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Animasi Button</title>
-  <style>
-    button {
-      border: 2px solid blue;
-      animation: border-animation 1s infinite alternate;
-    }
+    <title>Tombol dengan Border Bergerak</title>
+    <style>
+        button {
+            border: 2px solid #000;
+            transition: border 0.5s ease-in-out;
+        }
 
-    @keyframes border-animation {
-      from {
-        border-color: blue;
-      }
-      to {
-        border-color: red;
-      }
-    }
-  </style>
+        button:hover {
+            border-width: 4px;
+        }
+
+        button:active {
+            border-color: blue;
+            animation: border-pulse 1s infinite;
+        }
+
+        @keyframes border-pulse {
+            0% {
+                border-width: 4px;
+            }
+            50% {
+                border-width: 2px;
+            }
+            100% {
+                border-width: 4px;
+            }
+        }
+    </style>
 </head>
 <body>
-  <button>Klik Saya</button>
+    <button onclick="borderPulse()">Klik Saya</button>
 
-  <script>
-    const button = document.querySelector('button');
-
-    button.addEventListener('click', () => {
-      button.style.animationPlayState = 'running';
-    });
-  </script>
+    <script>
+        function borderPulse() {
+            // Tidak ada tindakan tambahan, efek animasi sudah diatur di CSS
+        }
+    </script>
 </body>
 </html>

@@ -373,6 +373,27 @@
     function showAlert() {
     alert("Oh yeah babyy🥵");
     }
+    // Fungsi untuk memeriksa ukuran layar dan mengatur posisi footer
+    function centerFooter() {
+    const footer = document.querySelector('footer');
+    if (!footer) {
+    const newFooter = document.createElement('footer');
+    newFooter.classList.add('footer-center');
+    newFooter.textContent = '© 2023 Reseller'; // Ganti teks copyright sesuai keinginan
+    document.body.appendChild(newFooter);
+    }
+    if (window.innerWidth > 768) {
+    footer.classList.add('footer-center');
+    } else {
+    footer.classList.remove('footer-center');
+    }
+    }
+    // Panggil fungsi saat halaman dimuat dan saat ukuran jendela berubah
+    window.addEventListener('load', centerFooter);
+    window.addEventListener('resize', centerFooter);
+    <footer>
+        © 2024 𝗥𝗲𝘀𝗲𝗹𝗹𝗲𝗿 +44.
+    </footer>
     const footer = document.querySelector('footer');
     const year = new Date().getFullYear();
     footer.textContent = `© ${year} 𝗥𝗲𝘀𝗲𝗹𝗹𝗲𝗿 +44.`;
@@ -390,29 +411,6 @@
     "name": "VIP Sumatra"
     }
     }
-    // Fungsi untuk memeriksa ukuran layar dan mengatur posisi footer
-function centerFooter() {
-  const footer = document.querySelector('footer');
-  if (!footer) {
-    const newFooter = document.createElement('footer');
-    newFooter.classList.add('footer-center');
-    newFooter.textContent = '© 2023 Reseller'; // Ganti teks copyright sesuai keinginan
-    document.body.appendChild(newFooter);
-  }
-
-  if (window.innerWidth > 768) {
-    footer.classList.add('footer-center');
-  } else {
-    footer.classList.remove('footer-center');
-  }
-}
-
-// Panggil fungsi saat halaman dimuat dan saat ukuran jendela berubah
-window.addEventListener('load', centerFooter);
-window.addEventListener('resize', centerFooter);
-<footer>
-        © 2024 𝗥𝗲𝘀𝗲𝗹𝗹𝗲𝗿 +44.
-    </footer>
     </script>
 
     <!-- Bootstrap JS, Popper.js, and jQuery -->

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Animasi Button</title>
+  <style>
+    button {
+      border: 2px solid blue;
+      animation: border-animation 1s infinite alternate;
+    }
+
+    @keyframes border-animation {
+      from {
+        border-color: blue;
+      }
+      to {
+        border-color: red;
+      }
+    }
+  </style>
+</head>
+<body>
+  <button>Klik Saya</button>
+
+  <script>
+    const button = document.querySelector('button');
+
+    button.addEventListener('click', () => {
+      button.style.animationPlayState = 'running';
+    });
+  </script>
+</body>
+</html>

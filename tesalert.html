@@ -10,24 +10,24 @@
     <script>
         const myButton = document.getElementById('myButton');
 
-        myButton.addEventListener('click', () => {
+        myButton.addEventListener('noclick', () => {
             Swal.fire({
                 title: 'Yakin?',
                 html: `
                     <a href="https://vipsmt.xyz/self-order?r=C9B1OKY"
                     <button class="swal2-button swal2-confirm" style="background-color: #3085d6;">
-                        Ini Aja
+                        Ini Aja</a>
                     </button>
                     <a href="https://vipsmt.store/"
                     <button class="swal2-button swal2-confirm" style="background-color: #66BB6A;">
-                        Oke Mikir Dulu
+                        Oke Mikir Dulu</a>
                     </button>
                     <button class="swal2-button swal2-cancel" style="background-color: #d33;">
                         Iya Deh Order Yg Lagi Diskon Aja
                     </button>
                 `,
-                showCancelButton: true, // Sembunyikan tombol cancel default
-                focusConfirm: true // Agar tidak fokus pada tombol pertama secara otomatis
+                showCancelButton: false, // Sembunyikan tombol cancel default
+                focusConfirm: false // Agar tidak fokus pada tombol pertama secara otomatis
             }).then((result) => {
                 if (result.isConfirmed) {
                     // Jika tombol "Ini Aja" atau "Mikir Dulu" ditekan

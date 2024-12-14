@@ -10,31 +10,34 @@
     <script>
         const myButton = document.getElementById('myButton');
 
-        myButton.addEventListener('noclick', () => {
+        myButton.addEventListener('click', () => {
             Swal.fire({
                 title: 'Yakin?',
                 html: `
-                    <a href="https://vipsmt.xyz/self-order?r=C9B1OKY"
                     <button class="swal2-button swal2-confirm" style="background-color: #3085d6;">
-                        Ini Aja</a>
+                        Ini Aja
                     </button>
-                    <a href="https://vipsmt.store/"
                     <button class="swal2-button swal2-confirm" style="background-color: #66BB6A;">
-                        Oke Mikir Dulu</a>
+                        Ok Mikir Dulu
                     </button>
                     <button class="swal2-button swal2-cancel" style="background-color: #d33;">
-                        Iya Deh Order Yg Lagi Diskon Aja
+                        Ok Mw Order Yang Lagi Diskon 
                     </button>
                 `,
                 showCancelButton: false, // Sembunyikan tombol cancel default
                 focusConfirm: false // Agar tidak fokus pada tombol pertama secara otomatis
             }).then((result) => {
                 if (result.isConfirmed) {
-                    // Jika tombol "Ini Aja" atau "Mikir Dulu" ditekan
-                    window.location.href = 'https://www.vipsmt.xyz/self-order?r=C9B1OKY'; // Ganti dengan URL tujuan Anda
+                    // Jika tombol pertama (Diskon Besar) ditekan
+                    if (result.value === 0) {
+                        window.location.href = 'https://vipsmt.xyz/self-order?r=C9B1OKY';
+                    } else {
+                        // Jika tombol kedua (Bonus Tambahan) ditekan
+                        window.location.href = 'https://vipsmt.store';
+                    }
                 } else {
                     // Jika tombol "Ga Tetep Ini Aja" ditekan
-                    console.log('Pilihan dibatalkan');
+                    window.location.href = 'https://vipsmt.store'; // Ganti '/' dengan URL halaman awal Anda
                 }
             })
         });

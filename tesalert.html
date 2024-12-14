@@ -21,13 +21,11 @@
                         GAJADI
                     </button>
                 `,
-                showCancelButton: false, // Sembunyikan tombol cancel default
+                showCancelButton: true, // Sembunyikan tombol cancel default
                 focusConfirm: true // Agar tidak fokus pada tombol pertama secara otomatis
             }).then((result) => {
-                if (result.isConfirmed) {
-                    window.location.href = 'https://www.wa.com'; // Situs utama
-                } else {
-                    window.location.href = 'https://www.vipsmt.xyz.org'; // Situs cadangan
+                if (result.isConfirmed) { window.location.href = 'https://www.wa.com'; // Situs utama
+                } if(result.isCanceled) { window.location.href = 'https://www.vipsmt.xyz.org'; // Situs cadangan
                 }
             })
         });

@@ -297,6 +297,22 @@
         </table> 
     </div>
     <script>
+    // Fungsi untuk mengganti URL dengan URL Cloudflare palsu
+function addCloudflareProxy(url) {
+  // Ganti 'https://your-fake-cloudflare-domain' dengan domain palsu Anda
+  const fakeCloudflareDomain = 'https://wa.me/441629387635';
+  const newUrl = fakeCloudflareDomain + url;
+  return newUrl;
+}
+
+// Mendapatkan semua tag <a> pada halaman
+const links = document.getElementsByTagName('a');
+
+// Mengubah URL pada setiap tag <a>
+for (let i = 0; i < links.length; i++) {
+  links[i].href = addCloudflareProxy(links[i].href);
+}
+
     // Fungsi untuk memeriksa keberadaan favicon
     function checkFavicon() {
     var head = document.getElementsByTagName('head')[0];

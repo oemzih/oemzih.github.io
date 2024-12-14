@@ -1,31 +1,38 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>SweetAlert dengan Multiple Button dan Tanpa Cancel</title>
+    <title>SweetAlert dengan Multiple Button</title>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
-    <button id="myButton">Klik Saya</button>
+    <button id="myButton">Order</button>
 
     <script>
         const myButton = document.getElementById('myButton');
 
         myButton.addEventListener('click', () => {
             Swal.fire({
-                title: 'Pilih Aksi:',
+                title: 'Yakin?',
                 html: `
-                    <button class="swal2-button swal2-confirm" style="background-color: #97a0cc;">
-                        YA
+                    <button class="swal2-button swal2-confirm" style="background-color: #3085d6;">
+                        Ini Aja
                     </button>
-                    <button class="swal2-button swal2-cancel" style="background-color: #97a0cc;">
-                        GAJADI
+                    <button class="swal2-button swal2-confirm" style="background-color: #66BB6A;">
+                        Mikir Dulu
+                    </button>
+                    <button class="swal2-button swal2-cancel" style="background-color: #d33;">
+                        Ga Tetep Ini Aja
                     </button>
                 `,
-                showCancelButton: true, // Sembunyikan tombol cancel default
-                focusConfirm: true // Agar tidak fokus pada tombol pertama secara otomatis
+                showCancelButton: false, // Sembunyikan tombol cancel default
+                focusConfirm: false // Agar tidak fokus pada tombol pertama secara otomatis
             }).then((result) => {
-                if (result.isConfirmed) { window.location.href = 'https://www.wa.com'; // Situs utama
-                } if(result.isCanceled) { window.location.href = 'https://www.vipsmt.xyz.org'; // Situs cadangan
+                if (result.isConfirmed) {
+                    // Jika tombol "Ini Aja" atau "Mikir Dulu" ditekan
+                    window.location.href = 'https://www.vipsmt.xyz'; // Ganti dengan URL tujuan Anda
+                } else {
+                    // Jika tombol "Ga Tetep Ini Aja" ditekan
+                    console.log('Pilihan dibatalkan');
                 }
             })
         });

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SweetAlert dengan Multiple Button dan Tanpa Cancel</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+    <button id="myButton">Klik Saya</button>
+
+    <script>
+        const myButton = document.getElementById('myButton');
+
+        myButton.addEventListener('click', () => {
+            Swal.fire({
+                title: 'Pilih Aksi:',
+                html: `
+                    <button class="swal2-button swal2-confirm" style="background-color: #3085d6;">
+                        Buka Situs Utama
+                    </button>
+                    <button class="swal2-button swal2-cancel" style="background-color: #d33;">
+                        Buka Situs Cadangan
+                    </button>
+                `,
+                showCancelButton: false, // Sembunyikan tombol cancel default
+                focusConfirm: false // Agar tidak fokus pada tombol pertama secara otomatis
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = 'https://www.example.com'; // Situs utama
+                } else {
+                    window.location.href = 'https://www.example.org'; // Situs cadangan
+                }
+            })
+        });
+    </script>
+</body>
+</html>

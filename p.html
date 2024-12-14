@@ -1,116 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Game Dinosaurus Mario</title>
-    <style>
-        body {
-            overflow: hidden;
-        }
-        #game {
-            position: relative;
-            width: 600px;
-            height: 200px;
-            border: 1px solid black;
-        }
-        #dino {
-            position: absolute;
-            bottom: 0;
-            width: 50px;
-            height: 50px;
-            background-color: green;
-        }
-        .obstacle {
-            position: absolute;
-            bottom: 0;
-            width: 20px;
-            height: 50px;
-            background-color: red;
-        }
-    </style>
+    <title>Alert Welcome dengan SweetAlert</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
-    <div id="game">
-        <div id="dino"></div>
-    </div>
+    <button onclick="showAlert()">Klik untuk Salam!</button>
+
     <script>
-    // Mengambil elemen HTML
-const game = document.getElementById('game');
-const dino = document.getElementById('dino');
-
-// Variabel untuk mengatur permainan
-let dinoX = 20;
-let dinoY = 150;
-let gravity = 0.9;
-let velocity = 0;
-let isJumping = false;
-let gameInterval;
-
-// Fungsi untuk membuat rintangan
-function createObstacle() {
-    const obstacle = document.createElement('div');
-    obstacle.classList.add('obstacle');
-    obstacle.style.left = game.offsetWidth + 'px';
-    game.appendChild(obstacle);
-
-    let obstacleLeft = parseInt(obstacle.style.left);
-
-    const moveObstacle = setInterval(() => {
-        obstacleLeft -= 5;
-        obstacle.style.left = obstacleLeft + 'px';
-
-        // Jika dinosaurus menabrak rintangan
-        if (
-            dinoX + dino.offsetWidth >= obstacleLeft &&
-            dinoX <= obstacleLeft + obstacle.offsetWidth &&
-            dinoY + dino.offsetHeight >= obstacle.offsetTop
-        ) {
-            clearInterval(gameInterval);
-            alert('Game Over!');
+        function showAlert() {
+            Swal.fire({
+                title: 'Selamat Datang!',
+                text: 'Semoga hari Anda menyenangkan!',
+                icon: 'success',
+                confirmButtonText: 'Oke'
+            })
         }
-
-        // Jika rintangan keluar dari layar
-        if (obstacleLeft + obstacle.offsetWidth < 0) {
-            game.removeChild(obstacle);
-            clearInterval(moveObstacle);
-        }
-    }, 10);
-}
-
-// Fungsi untuk melompat
-function jump() {
-    if (!isJumping) {
-        velocity = -15;
-        isJumping = true;
-    }
-}
-
-// Loop utama permainan
-gameInterval = setInterval(() => {
-    // Gravitasi
-    velocity += gravity;
-    dinoY += velocity;
-    dino.style.bottom = dinoY + 'px';
-
-    // Cek apakah dinosaurus menyentuh tanah
-    if (dinoY >= 150) {
-        dinoY = 150;
-        velocity = 0;
-        isJumping = false;
-    }
-
-    // Membuat rintangan secara acak
-    if (Math.random() < 0.01) {
-        createObstacle();
-    }
-}, 20);
-
-// Event listener untuk tombol spasi
-document.addEventListener('keydown', (event) => {
-    if (event.code === 'Space') {
-        jump();
-    }
-});
-
     </script>
 </body>
 </html>

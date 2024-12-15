@@ -25,23 +25,11 @@
     <!-- Custom CSS -->
     <style>
         #loading {
-    text-align: center;
-    font-size: 24px;
-    animation: loading 1s infinite;
-}
-
-@keyframes loading {
-    0% {
-        opacity: 0;
-    }
-    50% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0;
-    }
-}
-
+            display: none;
+            text-align: center;
+            font-size: 24px;
+            margin-top: 100px;
+        }
         body {
             font-family: 'Roboto', sans-serif;
             background: linear-gradient(135deg, #f7f7f7, #f7f7f7);
@@ -172,6 +160,9 @@
     </style>    
 </head>
 <body>
+    <div id="loading">Tunggu yaa bree...</div>
+    <div id="content">
+    </div>
     <div id="error-message">
     <div class="container">
         <h1 class="mb-4">CHEAT PB VIP Sumatra</h1>
@@ -310,39 +301,36 @@
         </table> 
     </div>
     <script>
-    let isLoading = false;
-    let loadingText = "Memuat data, mohon sabar ygy...";
-    const updateInterval = 60000; // 60000 milidetik = 1 menit
     // Fungsi untuk menampilkan animasi loading
-    function showLoading() {
-        isLoading = true;
-        document.getElementById('loading').textContent = loadingText;
-        document.getElementById('loading').style.display = 'block';
-        document.getElementById('content').style.display = 'none';
-    }
-    // Fungsi untuk menyembunyikan animasi loading dan menampilkan konten
-    function hideLoading() {
-        isLoading = false;
-        document.getElementById('loading').style.display = 'none';
-        document.getElementById('content').style.display = 'block';
-    }
-    // Fungsi untuk memperbarui halaman
-    function updatePage() {
-        if (!isLoading) {
-            showLoading();
-            // Simulasikan proses pemuatan data
+        function showLoading() {
+            document.getElementById('loading').style.display = 'block';
+            document.getElementById('content').style.display = 'none';
+        }
+
+        // Fungsi untuk menyembunyikan animasi loading dan menampilkan konten
+        function hideLoading() {
+            document.getElementById('loading').style.display = 'none';
+            document.getElementById('content').style.display = 'block';
+        }
+
+        // Fungsi untuk memperbarui halaman
+        function updatePage() {
+            showLoading(); // Tampilkan animasi loading
+
+            // Simulasikan proses pemuatan data (ganti dengan kode pemuatan data Anda)
             setTimeout(function() {
                 // Kode untuk mengambil data baru dan memperbarui konten
                 // ...
-                hideLoading();
+
+                hideLoading(); // Sembunyikan animasi loading
             }, 2000); // Simulasi pemuatan selama 2 detik
         }
-    }
-    // Jalankan pembaruan pertama kali
-    updatePage();
 
-    // Jalankan pembaruan secara berkala setiap 1 menit
-    setInterval(updatePage, updateInterval);
+        // Jalankan pembaruan pertama kali
+        updatePage();
+
+        // Jalankan pembaruan secara berkala (misal, setiap 5 detik)
+        setInterval(updatePage, 60000);
     // Update halaman setiap 1mnt detik
     //setInterval(function() {
     //location.reload();

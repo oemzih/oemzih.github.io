@@ -24,12 +24,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <!-- Custom CSS -->
     <style>
-        #loading {
-            display: none;
-            text-align: center;
-            font-size: 24px;
-            margin-top: 100px;
-        }
         body {
             font-family: 'Roboto', sans-serif;
             background: linear-gradient(135deg, #f7f7f7, #f7f7f7);
@@ -160,8 +154,6 @@
     </style>    
 </head>
 <body>
-    <div id="loading">Tunggu yaa bree...</div>
-    <div id="content">
     </div>
     <div id="error-message">
     <div class="container">
@@ -301,47 +293,16 @@
         </table> 
     </div>
     <script>
-    // Fungsi untuk menampilkan animasi loading
-        const updateInterval = 60000;
-        function showLoading() {
-            document.getElementById('loading').style.display = 'block';
-            document.getElementById('content').style.display = 'none';
-        }
-
-        // Fungsi untuk menyembunyikan animasi loading dan menampilkan konten
-        function hideLoading() {
-            document.getElementById('loading').style.display = 'none';
-            document.getElementById('content').style.display = 'block';
-        }
-
-        // Fungsi untuk memperbarui halaman
-        function updatePage() {
-            showLoading(); // Tampilkan animasi loading
-
-            // Simulasikan proses pemuatan data (ganti dengan kode pemuatan data Anda)
-            setTimeout(function() {
-                // Kode untuk mengambil data baru dan memperbarui konten
-                // ...
-
-                hideLoading(); // Sembunyikan animasi loading
-            }, 2000); // Simulasi pemuatan selama 2 detik
-        }
-
-        // Jalankan pembaruan pertama kali
-        updatePage();
-
-        // Jalankan pembaruan secara berkala (misal, setiap 5 detik)
-        setInterval(updatePage, updateInterval);
     // Update halaman setiap 1mnt detik
-    //setInterval(function() {
-    //location.reload();
-    //}, 100000);
+    setInterval(function() {
+    location.reload();
+    }, 60000);
     // Fetch data baru dan update elemen DOM
-    //fetch('/data')
-    //.then(response => response.json())
-    //.then(data =>
-    //document.getElementById('content').textContent = data.message;
-    //});
+    fetch('/data')
+    .then(response => response.json())
+    .then(data =>
+    document.getElementById('content').textContent = data.message;
+    });
     // Fungsi untuk memeriksa keberadaan favicon
     function checkFavicon() {
     var head = document.getElementsByTagName('head')[0];

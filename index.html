@@ -25,11 +25,23 @@
     <!-- Custom CSS -->
     <style>
         #loading {
-            display: none;
-            text-align: center;
-            font-size: 24px;
-            margin-top: 100px;
-        }
+    text-align: center;
+    font-size: 24px;
+    animation: loading 1s infinite;
+}
+
+@keyframes loading {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
         body {
             font-family: 'Roboto', sans-serif;
             background: linear-gradient(135deg, #f7f7f7, #f7f7f7);
@@ -301,35 +313,39 @@
         </table> 
     </div>
     <script>
+    let isLoading = false;
+    let loadingText = "Memuat data, mohon sabar ygy...";
+    const updateInterval = 60000; // 60000 milidetik = 1 menit
     // Fungsi untuk menampilkan animasi loading
     function showLoading() {
+        isLoading = true;
+        document.getElementById('loading').textContent = loadingText;
         document.getElementById('loading').style.display = 'block';
         document.getElementById('content').style.display = 'none';
     }
-
     // Fungsi untuk menyembunyikan animasi loading dan menampilkan konten
     function hideLoading() {
+        isLoading = false;
         document.getElementById('loading').style.display = 'none';
         document.getElementById('content').style.display = 'block';
     }
-
     // Fungsi untuk memperbarui halaman
     function updatePage() {
+        if (!isLoading) {
             showLoading();
-
             // Simulasikan proses pemuatan data
             setTimeout(function() {
                 // Kode untuk mengambil data baru dan memperbarui konten
                 // ...
-
                 hideLoading();
-            }, 2000);
+            }, 2000); // Simulasi pemuatan selama 2 detik
         }
     }
     // Jalankan pembaruan pertama kali
     updatePage();
-    // Jalankan pembaruan secara berkala (misal, setiap 5 detik)
-    setInterval(updatePage, 5000);
+
+    // Jalankan pembaruan secara berkala setiap 1 menit
+    setInterval(updatePage, updateInterval);
     // Update halaman setiap 1mnt detik
     //setInterval(function() {
     //location.reload();

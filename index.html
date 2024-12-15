@@ -24,6 +24,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <!-- Custom CSS -->
     <style>
+        #loading {
+            display: none;
+            text-align: center;
+            font-size: 24px;
+            margin-top: 100px;
+        }
         body {
             font-family: 'Roboto', sans-serif;
             background: linear-gradient(135deg, #f7f7f7, #f7f7f7);
@@ -154,6 +160,9 @@
     </style>    
 </head>
 <body>
+    <div id="loading">Tunggu yaa bree...</div>
+    <div id="content">
+    </div>
     <div id="error-message">
     <div class="container">
         <h1 class="mb-4">CHEAT PB VIP Sumatra</h1>
@@ -292,27 +301,20 @@
         </table> 
     </div>
     <script>
-    let isLoading = false;
-    let loadingText = "Memuat data, mohon tunggu...";
-
     // Fungsi untuk menampilkan animasi loading
     function showLoading() {
-        isLoading = true;
-        document.getElementById('loading').textContent = loadingText;
         document.getElementById('loading').style.display = 'block';
         document.getElementById('content').style.display = 'none';
     }
 
     // Fungsi untuk menyembunyikan animasi loading dan menampilkan konten
     function hideLoading() {
-        isLoading = false;
         document.getElementById('loading').style.display = 'none';
         document.getElementById('content').style.display = 'block';
     }
 
     // Fungsi untuk memperbarui halaman
     function updatePage() {
-        if (!isLoading) {
             showLoading();
 
             // Simulasikan proses pemuatan data

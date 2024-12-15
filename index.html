@@ -154,7 +154,6 @@
     </style>    
 </head>
 <body>
-    </div>
     <div id="error-message">
     <div class="container">
         <h1 class="mb-4">CHEAT PB VIP Sumatra</h1>
@@ -294,15 +293,15 @@
     </div>
     <script>
     // Update halaman setiap 1mnt detik
-    setInterval(function() {
-    location.reload();
-    }, 60000);
+    //setInterval(function() {
+    //location.reload();
+    //}, 60000);
     // Fetch data baru dan update elemen DOM
-    fetch('/data')
-    .then(response => response.json())
-    .then(data =>
-    document.getElementById('content').textContent = data.message;
-    });
+    //fetch('/data')
+    //.then(response => response.json())
+    //.then(data =>
+   // document.getElementById('content').textContent = data.message;
+   // });
     // Fungsi untuk memeriksa keberadaan favicon
     function checkFavicon() {
     var head = document.getElementsByTagName('head')[0];

@@ -24,6 +24,22 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <!-- Custom CSS -->
     <style>
+        #loading {
+        text-align: center;
+        font-size: 24px;
+        animation: loading 1s infinite;
+        }
+        @keyframes loading {
+        0% {
+        opacity: 0;
+        }
+        50% {
+        opacity: 1;
+        }
+        100% {
+        opacity: 0;
+        }
+        }
         body {
             font-family: 'Roboto', sans-serif;
             background: linear-gradient(135deg, #f7f7f7, #f7f7f7);
@@ -154,7 +170,9 @@
     </style>    
 </head>
 <body>
-    <div id="error-message"></div>
+    <div id="loading">Tunggu yaa bree..
+    <div id="content">
+    <div id="error-message">
     <div class="container">
         <h1 class="mb-4">CHEAT PB VIP Sumatra</h1>
         <p class="lead mb-4"> <p><b>❄️ 𝗗𝗘𝗦𝗘𝗠𝗕𝗘𝗥 𝗪𝗜𝗡𝗧𝗘𝗥 ❄️</b></p>Order Cheat Dapetin Diskon 10% ! Minimal Pembelian Paket 18+6 Hari Kamu Juga Bisa Dapetin Bonus Char/Cash PB Juga! ＞u＜</p>
@@ -292,16 +310,46 @@
         </table> 
     </div>
     <script>
+    // Fungsi untuk menampilkan animasi loading
+        function showLoading() {
+            document.getElementById('loading').style.display = 'block';
+            document.getElementById('content').style.display = 'none';
+        }
+
+        // Fungsi untuk menyembunyikan animasi loading dan menampilkan konten
+        function hideLoading() {
+            document.getElementById('loading').style.display = 'none';
+            document.getElementById('content').style.display = 'block';
+        }
+
+        // Fungsi untuk memperbarui halaman
+        function updatePage() {
+            showLoading(); // Tampilkan animasi loading
+
+            // Simulasikan proses pemuatan data (ganti dengan kode pemuatan data Anda)
+            setTimeout(function() {
+                // Kode untuk mengambil data baru dan memperbarui konten
+                // ...
+
+                hideLoading(); // Sembunyikan animasi loading
+            }, 2000); // Simulasi pemuatan selama 2 detik
+        }
+
+        // Jalankan pembaruan pertama kali
+        updatePage();
+
+        // Jalankan pembaruan secara berkala (misal, setiap 5 detik)
+        setInterval(updatePage, 10000);
     // Update halaman setiap 30 detik
-    setInterval(function() {
-    location.reload();
-    }, 100000);
+    //setInterval(function() {
+    //location.reload();
+    //}, 100000);
     // Fetch data baru dan update elemen DOM
-    fetch('/data')
-    .then(response => response.json())
-    .then(data => {
-    document.getElementById('content').textContent = data.message;
-    });
+    //fetch('/data')
+    //.then(response => response.json())
+    //.then(data =>
+    //document.getElementById('content').textContent = data.message;
+    //});
     // Fungsi untuk memeriksa keberadaan favicon
     function checkFavicon() {
     var head = document.getElementsByTagName('head')[0];

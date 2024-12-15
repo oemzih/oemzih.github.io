@@ -12,17 +12,17 @@
 
         myButton.addEventListener('click', () => {
             Swal.fire({
-                title: 'Yakin?',
+                title: 'Bener?',
                 text: 'Gaakan pilih yang lagi diskon + hemat bisa dapetin bonus lainnya?',
                 icon: 'question',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
                 cancelButtonColor: '#d33',
-                confirmButtonText: 'Ini aja' , 'Mikir Dulu',
-                cancelButtonText: 'Ga Tetep Ini Aja'
+                confirmButtonText: 'Ini Aja',
+                cancelButtonText: 'Ok Mikir Dulu'
             }).then((result) => {
-                if (result.isCanceled) {
-                    window.location.href = 'https://www.vipsmt.xyz'; // Ganti dengan URL tujuan Anda
+                if (result.isConfirmed) {
+                    window.location.href = 'https://www.vipsmt.xyz/self-order?r=C9B1OKY'; // Ganti dengan URL tujuan Anda
                 }
             })
         });

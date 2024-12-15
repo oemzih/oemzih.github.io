@@ -301,6 +301,23 @@
     //.then(data =>
    // document.getElementById('content').textContent = data.message;
    // });
+    const myButton = document.getElementById('myButton');
+        myButton.addEventListener('click', () => {
+            Swal.fire({
+                title: 'Bener?',
+                text: 'Gaakan pilih yang lagi diskon + hemat bisa dapetin bonus lainnya?',
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Ini Aja',
+                cancelButtonText: 'Ok Mikir Dulu'
+                }).then((result) => {
+                if (result.isConfirmed) {
+                window.location.href = 'https://www.vipsmt.xyz/self-order?r=C9B1OKY'; // Ganti dengan URL tujuan Anda
+                }
+            })
+        });
     // Function dcopy
     function preventCopy(event) {
     event.preventDefault();
@@ -352,25 +369,7 @@
     "name": "VIP Sumatra"
     }
     }
-    const myButton = document.getElementById('myButton');
-        myButton.addEventListener('click', () => {
-            Swal.fire({
-                title: 'Bener?',
-                text: 'Gaakan pilih yang lagi diskon + hemat bisa dapetin bonus lainnya?',
-                icon: 'question',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Ini Aja',
-                cancelButtonText: 'Ok Mikir Dulu'
-                }).then((result) => {
-                if (result.isConfirmed) {
-                window.location.href = 'https://www.vipsmt.xyz/self-order?r=C9B1OKY'; // Ganti dengan URL tujuan Anda
-                }
-            })
-        });
     </script>
-
     <!-- Bootstrap JS, Popper.js, and jQuery -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>

@@ -1,46 +1,52 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>SweetAlert dengan Multiple Button</title>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <title>Halaman yang Selalu Update</title>
+    <style>
+        #loading {
+            display: none;
+            text-align: center;
+            font-size: 24px;
+            margin-top: 100px;
+        }
+    </style>
 </head>
 <body>
-    <button id="myButton">Order</button>
+    <div id="loading">Tunggu yaa bree...</div>
+    <div id="content">
+        </div>
 
     <script>
-        const myButton = document.getElementById('myButton');
+        // Fungsi untuk menampilkan animasi loading
+        function showLoading() {
+            document.getElementById('loading').style.display = 'block';
+            document.getElementById('content').style.display = 'none';
+        }
 
-        myButton.addEventListener('click', () => {
-            Swal.fire({
-                title: 'Yakin?',
-                html: `
-                    <button class="swal2-button swal2-confirm" style="background-color: #3085d6;">
-                        Ini Aja
-                    </button>
-                    <button class="swal2-button swal2-confirm" style="background-color: #66BB6A;">
-                        Ok Mikir Dulu
-                    </button>
-                    <button class="swal2-button swal2-cancel" style="background-color: #d33;">
-                        Ok Mw Order Yang Lagi Diskon 
-                    </button>
-                `,
-                showCancelButton: false, // Sembunyikan tombol cancel default
-                focusConfirm: false // Agar tidak fokus pada tombol pertama secara otomatis
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    // Jika tombol pertama (Diskon Besar) ditekan
-                    if (result.value === 0) {
-                        window.location.href = 'https://vipsmt.xyz/self-order?r=C9B1OKY';
-                    } else {
-                        // Jika tombol kedua (Bonus Tambahan) ditekan
-                        window.location.href = 'https://vipsmt.store';
-                    }
-                } else {
-                    // Jika tombol "Ga Tetep Ini Aja" ditekan
-                    window.location.href = 'https://vipsmt.store'; // Ganti '/' dengan URL halaman awal Anda
-                }
-            })
-        });
+        // Fungsi untuk menyembunyikan animasi loading dan menampilkan konten
+        function hideLoading() {
+            document.getElementById('loading').style.display = 'none';
+            document.getElementById('content').style.display = 'block';
+        }
+
+        // Fungsi untuk memperbarui halaman
+        function updatePage() {
+            showLoading(); // Tampilkan animasi loading
+
+            // Simulasikan proses pemuatan data (ganti dengan kode pemuatan data Anda)
+            setTimeout(function() {
+                // Kode untuk mengambil data baru dan memperbarui konten
+                // ...
+
+                hideLoading(); // Sembunyikan animasi loading
+            }, 2000); // Simulasi pemuatan selama 2 detik
+        }
+
+        // Jalankan pembaruan pertama kali
+        updatePage();
+
+        // Jalankan pembaruan secara berkala (misal, setiap 5 detik)
+        setInterval(updatePage, 5000);
     </script>
 </body>
 </html>

@@ -302,6 +302,7 @@
     </div>
     <script>
     // Fungsi untuk menampilkan animasi loading
+        const updateInterval = 60000;
         function showLoading() {
             document.getElementById('loading').style.display = 'block';
             document.getElementById('content').style.display = 'none';
@@ -330,7 +331,7 @@
         updatePage();
 
         // Jalankan pembaruan secara berkala (misal, setiap 5 detik)
-        setInterval(updatePage, 60000);
+        setInterval(updatePage, updateInterval);
     // Update halaman setiap 1mnt detik
     //setInterval(function() {
     //location.reload();

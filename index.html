@@ -172,7 +172,7 @@
                     <td>1 Hari</td>
                     <td>1̶0̶.̶0̶0̶0̶ menjadi 9.000</td>
                     <td><a href="https://vipsmt.xyz/self-order?r=C9B1OKY"
-                          <class="btn btn-primary" onclick="confirmSave()">Order</a></td>
+                          class="btn btn-primary" onclick="confirmSave()">Order</a></td>
                 </tr>
                 <tr>
                     <td>2</td>
@@ -303,17 +303,17 @@
    // });
     function confirmSave() {
     Swal.fire({
-    title: "Apakah Anda ingin menyimpan perubahan?",
+    title: "Yakin Gamau Pilih Paket Yang Diskonnya Lebih Besar?",
     showDenyButton: true,
     showCancelButton: true,
-    confirmButtonText: "Simpan",
-    denyButtonText: `Jangan Simpan`
+    confirmButtonText: "Ga Ah Ini Aja",
+    denyButtonText: `Yauda Pikir² Dulu`
     }).then((result) => {
     if (result.isConfirmed) {
       // Ganti 'https://www.contohwebsite.com' dengan URL yang diinginkan
-      window.location.href = "https://www.contohwebsite.com";
+      window.location.href = "https://vipsmt.store?ref=C9B1OKY";
       } else if (result.isDenied) {
-      Swal.fire("Perubahan tidak disimpan", "", "info");
+      Swal.fire("Oke dipikirin baik² yaa..", "", "info");
     }
     });
     }

@@ -303,6 +303,7 @@
    // });
     function confirmSave() {
     Swal.fire({
+    icon: "warning",
     title: "Yakin Gamau Pilih Paket Yang Diskonnya Lebih Besar?",
     showDenyButton: true,
     showCancelButton: true,
@@ -310,10 +311,10 @@
     denyButtonText: `Yauda Pikir² Dulu`
     }).then((result) => {
     if (result.isConfirmed) {
-      // Ganti 'https://www.contohwebsite.com' dengan URL yang diinginkan
-      window.location.href = "https://vipsmt.store?ref=C9B1OKY";
+      // Ganti 'https://vipsmt.xyz' dengan URL yang diinginkan
+      window.location.href = "https://vipsmt.xyz/self-order?r=C9B1OKY";
       } else if (result.isDenied) {
-      Swal.fire("Oke dipikirin baik² yaa..", "", "info");
+      Swal.fire("Oke dipikir² dulu ya..", "", "info");
     }
     });
     }

@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.15.0/dist/sweetalert2.all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="keywords" content="cheat, cheat pb, cheat pb zepetto, cheat sumatra, sumatra cheat, cheat murah, cheat pointblank, vipsmt, vipsmt.store, store">
@@ -173,7 +173,7 @@
                     <td>1 Hari</td>
                     <td>1̶0̶.̶0̶0̶0̶ menjadi 9.000</td>
                     <td><a href="https://vipsmt.xyz/self-order?r=C9B1OKY"
-                          <class="btn btn-primary" myButton onclick="confirmSave()">Order</a></td>
+                          <class="btn btn-primary" onclick="confirmSave()">Order</a></td>
                 </tr>
                 <tr>
                     <td>2</td>
@@ -303,20 +303,19 @@
    // document.getElementById('content').textContent = data.message;
    // });
     function confirmSave() {
-  Swal.fire({
+    Swal.fire({
     title: "Apakah Anda ingin menyimpan perubahan?",
     showDenyButton: true,
     showCancelButton: true,
     confirmButtonText: "Simpan",
     denyButtonText: `Jangan Simpan`
-  }).then((result) => {
+    }).then((result) => {
     if (result.isConfirmed) {
       // Ganti 'https://www.contohwebsite.com' dengan URL yang diinginkan
       window.location.href = "https://www.contohwebsite.com";
-    } else if (result.isDenied) {
+      } else if (result.isDenied) {
       Swal.fire("Perubahan tidak disimpan", "", "info");
     }
-  });
     // Function dcopy
     function preventCopy(event) {
     event.preventDefault();

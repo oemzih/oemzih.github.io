@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram Profile Downloader</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+    <h1>Instagram Profile Downloader</h1>
+    <button id="download-button">Download Instagram Profile Image</button>
+
+    <script>
+        const downloadButton = document.getElementById('download-button');
+
+        downloadButton.addEventListener('click', async () => {
+            const username = await Swal.fire({
+                title: "Enter Instagram Username",
+                input: "text",
+                inputAttributes: {
+                    autocapitalize: "off"
+                },
+                showCancelButton: true,
+                confirmButtonText: "Download",
+                showLoaderOnConfirm: true,
+                preConfirm: async (login) => {
+                    try {
+                        // Replace with Instagram API endpoint (consider unofficial API wrappers if necessary)
+                        const instagramUrl = `https://www.instagram.com/${login}/?__a=1`;
+
+                        const response = await fetch(instagramUrl);
+                        if (!response.ok) {
+                            return Swal.showValidationMessage(`
+                                Request failed: ${await response.text()}
+                            `);
+                        }
+
+                        const data = await response.json();
+                        const profilePicUrl = data.graphql.user.profile_pic_url_hd; // Assuming the property name for the profile picture URL
+
+                        if (!profilePicUrl) {
+                            return Swal.showValidationMessage(`
+                                Profile picture not found for user ${login}.
+                            `);
+                        }
+
+                        return { username, profilePicUrl };
+                    } catch (error) {
+                        Swal.showValidationMessage(`
+                            Request failed: ${error}
+                        `);
+                    }
+                },
+                allowOutsideClick: () => !Swal.isLoading()
+            });
+
+            if (username.isConfirmed) {
+                const { username, profilePicUrl } = username.value;
+                const filename = `${username}-profile-pic.jpg`; // Example filename
+
+                // Handle file download using FileSaver.js (if desired)
+                if (typeof window.saveAs === 'function') { // Check for FileSaver.js
+                    const blob = await fetch(profilePicUrl).then(res => res.blob());
+                    window.saveAs(blob, filename); // Download with FileSaver.js
+                } else {
+                    // Provide alternative download instructions if FileSaver.js is not available
+                    Swal.fire({
+                        title: 'Download Instructions',
+                        html: `
+                            <p>Right-click on the image below and choose "Save image as..." to download.<br>
+                            Filename: ${filename}</p>
+                            <img src="${profilePicUrl}" alt="${username}'s profile picture">
+                        `
+                    });
+                }
+            }
+        });
+    </script>
+</body>
+</html>

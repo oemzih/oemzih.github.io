@@ -255,8 +255,8 @@
                     <td>13</td>
                     <td>450+50 Hari+Char B5+CM Clan XXII+Cash 44,9k</td>
                     <td>4̶.̶1̶0̶0̶.̶0̶0̶0̶ menjadi 3.690.000</td>
-                    <td><a href="https://wa.me/441619387635?text=Hallo mas, saya mau order paket 450＋50 Hari＋Char Hero＋CM Clan Gunnery＋Cash 44.900"
-                           class="btn btn-primary btn-sm" onclick="stokKosong()">Order</a></td>
+                    <!--<td><a href="https://wa.me/441619387635?text=Hallo mas, saya mau order paket 450＋50 Hari＋Char Hero＋CM Clan Gunnery＋Cash 44.900"-->
+                    <td><a class="btn btn-primary btn-sm" onclick="showToast()">Kosong</a></td>
                 </tr>
             </tbody>
         </table> <!--class="mb-4"-->
@@ -329,20 +329,23 @@
         timerProgressBar: true,
         });
         });
-    </script>
-    <script>
-    function stokKosong() {
-    window.addEventListener('load', () => {
-    Swal.fire({
-        icon: 'error',
-        title: '𝗦𝘁𝗼𝗸 𝗹𝗮𝗴𝗶 𝗸𝗼𝘀𝗼𝗻𝗴 𝗯𝗼𝘆 !',
-        toast: true, // Enable toast style
-        position: 'top-end',
-        showConfirmButton: false,
-        timer: 3000,
-        timerProgressBar: true,
-        });
-        });
+    const Toast = Swal.mixin({
+    toast: true,
+    position: "top-end",
+    showConfirmButton: false,
+    timer: 3000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+    toast.onmouseenter = Swal.stopTimer;
+    toast.onmouseleave = Swal.resumeTimer;
+    }
+    });
+  function showToast() {
+    Toast.fire({
+    icon: "error",
+    title: "𝗦𝘁𝗼𝗸 𝗹𝗮𝗴𝗶 𝗸𝗼𝘀𝗼𝗻𝗴 𝗯𝗿𝗲𝗲.."
+    });
+    }
     // Function dcopy
     function preventCopy(event) {
     event.preventDefault();

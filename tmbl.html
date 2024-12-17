@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sweet Alert Demo</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+    <button id="myButton">Klik Saya</button>
+
+    <script>
+        // Mendapatkan elemen tombol dengan ID "myButton"
+        const myButton = document.getElementById('myButton');
+
+        // Menambahkan event listener "click" pada tombol
+        myButton.addEventListener('click', () => {
+            Swal.fire({
+                icon: 'error',
+                title: '𝗪𝗲𝗹𝗰𝗼𝗺𝗲 𝘁𝗼 𝗩𝗜𝗣 𝗦𝘂𝗺𝗮𝘁𝗿𝗮𝗰𝗶𝘁 !',
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+            });
+        });
+    </script>
+</body>
+</html>

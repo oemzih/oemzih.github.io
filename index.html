@@ -87,10 +87,14 @@
             background-color: #909cde;
             transform: translateY(-2px);
         }
-       .dark-mode {
-            background-color: #222;
-            color: #fff;
-        }
+       .#myButton {
+            background-color: #677beb; /* Set the desired button color */
+            color: white; /* Ensure contrasting text color for readability */
+            border: none; /* Remove default border */
+            padding: 10px 20px; /* Adjust padding for better aesthetics */
+            border-radius: 5px; /* Add subtle rounded corners */
+            cursor: pointer; /* Indicate clickable nature with cursor change */
+       }
         /* Responsive adjustments */
         @media (max-width: 768px) {
             .container {
@@ -257,7 +261,7 @@
                     <td>450+50 Hari+Char B5+CM Clan XXII+Cash 44,9k</td>
                     <td>4̶.̶1̶0̶0̶.̶0̶0̶0̶ menjadi 3.690.000</td>
                     <!--<td><a href="https://wa.me/441619387635?text=Hallo mas, saya mau order paket 450＋50 Hari＋Char Hero＋CM Clan Gunnery＋Cash 44.900"-->
-                    <td><a><button id="btn-primary myButton">Order</button></a></td>
+                    <td><button id="myButton">Order</button></td>
                 </tr>
             </tbody>
         </table> <!--class="mb-4"-->
@@ -306,7 +310,6 @@
      const myButton = document.getElementById('myButton');
    // Menambahkan event listener "click" pada tombol
     // Mengatur warna latar belakang tombol menjadi biru muda (sesuai gambar)
-    myButton.style.backgroundColor = '#677beb'; // Warna biru muda
     myButton.addEventListener('click', () => {
     Swal.fire({
     icon: 'error',

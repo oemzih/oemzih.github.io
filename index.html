@@ -23,6 +23,26 @@
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <!-- Custom CSS -->
+    <script>
+        const Toast = Swal.mixin({
+    toast: true,
+    position: "top-end",
+    showConfirmButton: false,
+    timer: 3000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+    toast.onmouseenter = Swal.stopTimer;
+    toast.onmouseleave = Swal.resumeTimer;
+    }
+    });
+  function showToast() {
+    Toast.fire({
+    icon: "error",
+    title: "𝗦𝘁𝗼𝗸 𝗹𝗮𝗴𝗶 𝗸𝗼𝘀𝗼𝗻𝗴 𝗯𝗿𝗲𝗲.."
+    });
+    }
+</script>
+</head>
     <style>
         body {
             font-family: 'Roboto', sans-serif;
@@ -301,23 +321,6 @@
     //.then(data =>
    // document.getElementById('content').textContent = data.message;
    // });
-    const Toast = Swal.mixin({
-    toast: true,
-    position: "top-end",
-    showConfirmButton: false,
-    timer: 3000,
-    timerProgressBar: true,
-    didOpen: (toast) => {
-    toast.onmouseenter = Swal.stopTimer;
-    toast.onmouseleave = Swal.resumeTimer;
-    }
-    });
-  function showToast() {
-    Toast.fire({
-    icon: "error",
-    title: "𝗦𝘁𝗼𝗸 𝗹𝗮𝗴𝗶 𝗸𝗼𝘀𝗼𝗻𝗴 𝗯𝗿𝗲𝗲.."
-    });
-  }
     function confirmSave() {
     Swal.fire({
     title: "Yakin Gamau Pilih Paket Yang Diskonnya Lebih Besar?",

@@ -23,27 +23,6 @@
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <!-- Custom CSS -->
-    <script>
-    window.addEventListener('load', () => {
-    const Toast = Swal.mixin({
-    toast: true,
-    position: "top-end",
-    showConfirmButton: false,
-    timer: 3000,
-    timerProgressBar: true,
-    didOpen: (toast) => {
-    toast.onmouseenter = Swal.stopTimer;
-    toast.onmouseleave = Swal.resumeTimer;
-    }
-    });
-    window.addEventListener('load', () => {
-  function showToast() {
-    Toast.fire({
-    icon: "error",
-    title: "𝗦𝘁𝗼𝗸 𝗹𝗮𝗴𝗶 𝗸𝗼𝘀𝗼𝗻𝗴 𝗯𝗿𝗲𝗲.."
-    });
-    }
-</script>
 </head>
     <style>
         body {
@@ -278,7 +257,7 @@
                     <td>450+50 Hari+Char B5+CM Clan XXII+Cash 44,9k</td>
                     <td>4̶.̶1̶0̶0̶.̶0̶0̶0̶ menjadi 3.690.000</td>
                     <!--<td><a href="https://wa.me/441619387635?text=Hallo mas, saya mau order paket 450＋50 Hari＋Char Hero＋CM Clan Gunnery＋Cash 44.900"-->
-                    <td><a class="btn btn-primary btn-sm" onclick="showToast()">Kosong</a></td>
+                    <td><a class="btn btn-primary btn-sm" onclick="myToast()">Order</a></td>
                 </tr>
             </tbody>
         </table> <!--class="mb-4"-->
@@ -323,6 +302,20 @@
     //.then(data =>
    // document.getElementById('content').textContent = data.message;
    // });
+   // Mendapatkan elemen tombol dengan ID "myButton"
+     const myToast = document.getElementById('myToast');
+   // Menambahkan event listener "click" pada tombol
+    myToast.addEventListener('click', () => {
+    Swal.fire({
+    icon: 'error',
+    title: '𝗪𝗲𝗹𝗰𝗼𝗺𝗲 𝘁𝗼 𝗩𝗜𝗣 𝗦𝘂𝗺𝗮𝘁𝗿𝗮𝗰𝗶𝘁 !',
+    toast: true,
+    position: 'top-end',
+    showConfirmButton: false,
+    timer: 3000,
+    timerProgressBar: true,
+    });
+    });
     function confirmSave() {
     Swal.fire({
     title: "Yakin Gamau Pilih Paket Yang Diskonnya Lebih Besar?",
@@ -333,10 +326,10 @@
     denyButtonText: `Yauda Pikir² Dulu`
     }).then((result) => {
     if (result.isConfirmed) {
-      // Ganti 'https://vipsmt.xyz' dengan URL yang diinginkan
-      window.location.href = "https://vipsmt.xyz/self-order?r=C9B1OKY";
-      } else if (result.isDenied) {
-      Swal.fire("Oke pikir² dulu ya..", "", "info");
+    // Ganti 'https://vipsmt.xyz' dengan URL yang diinginkan
+    window.location.href = "https://vipsmt.xyz/self-order?r=C9B1OKY";
+    } else if (result.isDenied) {
+    Swal.fire("Oke pikir² dulu ya..", "", "info");
     }
     });
     }

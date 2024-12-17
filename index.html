@@ -256,7 +256,7 @@
                     <td>450+50 Hari+Char B5+CM Clan XXII+Cash 44,9k</td>
                     <td>4̶.̶1̶0̶0̶.̶0̶0̶0̶ menjadi 3.690.000</td>
                     <td><a href="https://wa.me/441619387635?text=Hallo mas, saya mau order paket 450＋50 Hari＋Char Hero＋CM Clan Gunnery＋Cash 44.900"
-                           class="btn btn-primary btn-sm" download>Order</a></td>
+                           class="btn btn-primary btn-sm" onclick="stokKosong()">Order</a></td>
                 </tr>
             </tbody>
         </table> <!--class="mb-4"-->
@@ -276,7 +276,7 @@
                 <tr>
                     <td class="wa-border"></td>
                     <td>Kontak Manual</td>
-                    <td><a href="https://wa.me/441619387635?text=Hallo mas, saya mau Claim hadiah pembelian paket (contoh 14＋5 Hari Char D1) dan kirim bukti screenshot pembelian ya."
+                    <td><a href="https://wa.me/441619387635?text=Hallo mas, saya mau Claim hadiah pembelian paket (contoh 18＋6 Hari Char D1) dan kirim bukti screenshot pembelian ya."
                            class="btn btn-primary btn-sm">Disini</a></td>
                 </tr>
             </tbody>
@@ -322,6 +322,17 @@
     Swal.fire({
         icon: 'success',
         title: '𝗪𝗲𝗹𝗰𝗼𝗺𝗲 𝘁𝗼 𝗩𝗜𝗣 𝗦𝘂𝗺𝗮𝘁𝗿𝗮 !',
+        toast: true, // Enable toast style
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        });
+        });
+    function stokKosong() {
+    Swal.fire({
+        icon: 'error',
+        title: '𝗦𝘁𝗼𝗸 𝗹𝗮𝗴𝗶 𝗸𝗼𝘀𝗼𝗻𝗴 𝗯𝗼𝘆 !',
         toast: true, // Enable toast style
         position: 'top-end',
         showConfirmButton: false,

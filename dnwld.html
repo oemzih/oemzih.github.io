@@ -1,12 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Downloader Avatar Instagram</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome Alert</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
     <input type="text" id="username" placeholder="Masukkan username Instagram">
     <button onclick="downloadAvatar()">Download</button>
-
+    <script>
+        window.addEventListener('load', () => {
+            Swal.fire({
+                icon: 'success',
+                title: 'Welcome',
+                toast: true, // Enable toast style
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+            });
+        });
+    </script>
     <script>
         function downloadAvatar() {
             // Dapatkan username dari input

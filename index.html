@@ -318,6 +318,17 @@
     }
     });
     }
+    window.addEventListener('load', () => {
+    Swal.fire({
+        icon: 'success',
+        title: '𝗪𝗲𝗹𝗰𝗼𝗺𝗲 𝘁𝗼 𝗩𝗜𝗣 𝗦𝘂𝗺𝗮𝘁𝗿𝗮 !',
+        toast: true, // Enable toast style
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        });
+        });
     // Function dcopy
     function preventCopy(event) {
     event.preventDefault();

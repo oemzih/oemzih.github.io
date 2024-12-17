@@ -301,6 +301,23 @@
     //.then(data =>
    // document.getElementById('content').textContent = data.message;
    // });
+    const Toast = Swal.mixin({
+    toast: true,
+    position: "top-end",
+    showConfirmButton: false,
+    timer: 3000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+    toast.onmouseenter = Swal.stopTimer;
+    toast.onmouseleave = Swal.resumeTimer;
+    }
+    });
+  function showToast() {
+    Toast.fire({
+    icon: "error",
+    title: "𝗦𝘁𝗼𝗸 𝗹𝗮𝗴𝗶 𝗸𝗼𝘀𝗼𝗻𝗴 𝗯𝗿𝗲𝗲.."
+    });
+  }
     function confirmSave() {
     Swal.fire({
     title: "Yakin Gamau Pilih Paket Yang Diskonnya Lebih Besar?",
@@ -329,23 +346,6 @@
         timerProgressBar: true,
         });
         });
-    const Toast = Swal.mixin({
-    toast: true,
-    position: "top-end",
-    showConfirmButton: false,
-    timer: 3000,
-    timerProgressBar: true,
-    didOpen: (toast) => {
-    toast.onmouseenter = Swal.stopTimer;
-    toast.onmouseleave = Swal.resumeTimer;
-    }
-    });
-  function showToast() {
-    Toast.fire({
-    icon: "error",
-    title: "𝗦𝘁𝗼𝗸 𝗹𝗮𝗴𝗶 𝗸𝗼𝘀𝗼𝗻𝗴 𝗯𝗿𝗲𝗲.."
-    });
-    }
     // Function dcopy
     function preventCopy(event) {
     event.preventDefault();

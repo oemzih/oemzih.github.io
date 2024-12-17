@@ -24,7 +24,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <!-- Custom CSS -->
     <script>
-        const Toast = Swal.mixin({
+    window.addEventListener('load', () => {
+    const Toast = Swal.mixin({
     toast: true,
     position: "top-end",
     showConfirmButton: false,
@@ -35,6 +36,7 @@
     toast.onmouseleave = Swal.resumeTimer;
     }
     });
+    window.addEventListener('load', () => {
   function showToast() {
     Toast.fire({
     icon: "error",
@@ -341,7 +343,7 @@
     window.addEventListener('load', () => {
     Swal.fire({
         icon: 'success',
-        title: '𝗪𝗲𝗹𝗰𝗼𝗺𝗲 𝘁𝗼 𝗩𝗜𝗣 𝗦𝘂𝗺𝗮𝘁𝗿𝗮 !',
+        title: '𝗪𝗲𝗹𝗰𝗼𝗺𝗲 𝘁𝗼 𝗩𝗜𝗣 𝗦𝘂𝗠𝗮𝘁𝗿𝗮𝗰𝗶𝘁 !',
         toast: true, // Enable toast style
         position: 'top-end',
         showConfirmButton: false,

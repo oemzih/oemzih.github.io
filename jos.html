@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auto-closing Alert Toast</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>  </head>
+<body>
+    <script>
+        window.onload = function() {  // Execute code when page loads
+            Swal.fire({
+                title: "PROMO!",
+                html: "B5 MURAH ROR!.",
+                timer: 10000,  // Close after 2 seconds
+                timerProgressBar: true,  // Display progress bar
+                didOpen: () => {
+                    Swal.showLoading();
+                    const timer = Swal.getPopup().querySelector("b");
+                    const timerInterval = setInterval(() => {
+                        timer.textContent = `${Swal.getTimerLeft()}`;
+                    }, 1000);  // Update timer every 100ms
+                    return timerInterval;  // Return the interval ID for clearing later
+                },
+                willClose: (SwalInstance) => {  // Use SwalInstance for better scoping
+                    clearInterval(SwalInstance.params.didOpen.returned);  // Clear the interval using the returned ID
+                }
+            }).then((result) => {
+                if (result.dismiss === Swal.DismissReason.timer) {
+                    console.log("I was closed by the timer");
+                }
+            });
+        };
+    </script>
+</body>
+</html>

@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Jam Digital Animasi</title>
+  <title>Jam Digital dengan Border Animasi</title>
   <style>
     #clock {
       font-size: 36px;
       text-align: center;
-      border: 2px solid black;
+      border: 2px solid black; /* Border tetap hitam */
       padding: 10px;
     }
   </style>
@@ -24,10 +24,10 @@
       let time = hours + ":" + minutes + ":" + seconds;
       document.getElementById('clock').textContent = time;
 
-      // Efek animasi warna RGB
+      // Animasi warna border
       const clockElement = document.getElementById('clock');
       const randomColor = () => `rgb(${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)})`;
-      clockElement.style.color = randomColor();
+      clockElement.style.borderColor = randomColor();
     }
 
     setInterval(showTime, 1000);

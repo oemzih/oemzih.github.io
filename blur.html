@@ -3,6 +3,11 @@
 <head>
   <title>Jam Digital</title>
   <style>
+    #myElement {
+      border: 2px solid #ccc;
+      box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+      padding: 10px;
+    }
     #clock {
     font-family: sans-serif;
     font-size: 36px;
@@ -15,8 +20,19 @@
   </style>
 </head>
 <body>
-  <div id="clock"></div>
+  <div id="clock">Jam</div>
+  <div id="myElement">Ini adalah elemen dengan border menonjol</div>
 
+  <script>
+    // Contoh mengubah warna shadow secara dinamis
+    const myElement = document.getElementById('myElement');
+    myElement.addEventListener('mouseover', () => {
+      myElement.style.boxShadow = "0px 10px 20px rgba(0, 0, 255, 0.5)";
+    });
+    myElement.addEventListener('mouseout', () => {
+      myElement.style.boxShadow = "0px 5px 10px rgba(0, 0, 0, 0.2)";
+    });
+  </script>
   <script>
     function showTime() {
       const date = new Date();

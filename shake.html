@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tombol Goyang</title>
+</head>
+<body>
+  <button id="myButton">Klik Saya</button>
+
+  <script>
+    const button = document.getElementById('myButton');
+
+    button.addEventListener('mouseover', () => {
+      button.style.animation = 'shake 0.5s';
+    });
+
+    button.addEventListener('mouseout', () => {
+      button.style.animation = 'none';
+    });
+
+    @keyframes shake {
+      0% { transform: translateX(0); }
+      25% { transform: translateX(-10px); }
+      50% { transform: translateX(10px); }
+      75% { transform: translateX(-5px); }
+      100% { transform: translateX(0); }
+    }
+  </script>
+</body>
+</html>

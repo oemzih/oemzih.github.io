@@ -1,50 +1,32 @@
 <!DOCTYPE html>
 <html>
 <head>
-<style>
-  #overlay {
-  transition: opacity 0.3s ease-in-out;
-}
-</style>
+  <title>Jam Digital</title>
+  <style>
+    #clock {
+      font-family: sans-serif;
+      font-size: 36px;
+      text-align: center;
+      color: #333;
+    }
+  </style>
 </head>
 <body>
-<p id="teksTarget">Ini adalah teks target</p>
-<div id="overlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5);">
-  <button>Laporkan</button>
-  <button>Blokir</button>
-</div>
+  <div id="clock"></div>
 
   <script>
-    // ...
-const rect = teksTarget.getBoundingClientRect();
-buttons.style.left = rect.left + 'px';
-buttons.style.top = rect.bottom + 'px';
-// ...
+    function showTime() {
+      const date = new Date();
+      const hours = date.getHours();
+      const minutes = date.getMinutes();
+      const seconds = date.getSeconds();
 
-    const teksTarget = document.getElementById('teksTarget');
-const overlay = document.getElementById('overlay');
-const buttons = overlay.querySelectorAll('button');
+      const timeString = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
 
-teksTarget.addEventListener('contextmenu', showOverlay);
-teksTarget.addEventListener('touchhold', showOverlay);
+      document.getElementById('clock').textContent = timeString;
+    }
 
-function showOverlay(event) {
-  event.preventDefault(); // Mencegah konteks menu default
-  overlay.style.display = 'block';
-
-  // Posisikan tombol di sekitar teks (sesuaikan dengan kebutuhan)
-  // Misalnya, menggunakan JavaScript untuk menghitung posisi teks dan menempatkan tombol di bawahnya
-}
-
-// Sembunyikan overlay ketika salah satu tombol diklik atau ketika klik di luar overlay
-buttons.forEach(button => {
-  button.addEventListener('click', hideOverlay);
-});
-overlay.addEventListener('click', hideOverlay);
-
-function hideOverlay() {
-  overlay.style.display = 'none';
-}
+    setInterval(showTime, 1000); // Update setiap 1 detik
   </script>
 </body>
 </html>

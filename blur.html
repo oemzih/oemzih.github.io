@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Efek Buram</title>
+  <style>
+    .blur-target {
+      /* Gaya untuk elemen yang akan diburamkan */
+      width: 200px;
+      height: 200px;
+      background-color: lightblue;
+      transition: filter 0.3s ease-in-out; /* Transisi halus saat efek buram diterapkan */
+    }
+  </style>
+</head>
+<body>
+  <button onclick="blurElement()">Buramkan</button>
+  <div class="blur-target"></div>
+
+  <script>
+    function blurElement() {
+      const blurTarget = document.querySelector('.blur-target');
+      blurTarget.style.filter = 'blur(5px)'; // Sesuaikan nilai blur sesuai keinginan
+    }
+  </script>
+</body>
+</html>

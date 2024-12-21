@@ -1,26 +1,31 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Efek Buram</title>
-  <style>
-    .blur-target {
-      /* Gaya untuk elemen yang akan diburamkan */
-      width: 200px;
-      height: 200px;
-      background-color: lightblue;
-      transition: filter 0.3s ease-in-out; /* Transisi halus saat efek buram diterapkan */
-    }
-  </style>
+<style>
+  .teks {
+    /* Gaya untuk teks normal */
+    font-size: 24px;
+  }
+  .buram {
+    /* Gaya untuk teks buram */
+    filter: blur(5px);
+    opacity: 0.5;
+  }
+</style>
 </head>
 <body>
-  <button onclick="blurElement()">Buramkan</button>
-  <div class="blur-target"></div>
+  <div class="teks" id="myText">Ku kira aku doang yang ganteng, rupanya Jefri Nichol juga</div>
 
   <script>
-    function blurElement() {
-      const blurTarget = document.querySelector('.blur-target');
-      blurTarget.style.filter = 'blur(5px)'; // Sesuaikan nilai blur sesuai keinginan
-    }
+    const teks = document.getElementById('myText');
+
+    teks.addEventListener('touchstart', () => {
+      teks.classList.add('buram');
+    });
+
+    teks.addEventListener('touchend', () => {
+      teks.classList.remove('buram');
+    });
   </script>
 </body>
 </html>

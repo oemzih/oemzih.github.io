@@ -360,15 +360,21 @@
     });
     }
     window.addEventListener('load', () => {
-    Swal.fire({
+        // Function to display a welcome message with custom text
+        function showWelcomeMessage(message) {
+        Swal.fire({
         icon: 'success',
-        title: '𝗪𝗲𝗹𝗰𝗼𝗺𝗲 𝘁𝗼 𝗩𝗜𝗣 𝗦𝘂𝗠𝗮𝘁𝗿𝗮𝗰𝗶𝘁 !',
+        title: message,
         toast: true, // Enable toast style
         position: 'top-end',
         showConfirmButton: false,
         timer: 3000,
         timerProgressBar: true,
         });
+        }
+        // Call the function twice with different messages
+        showWelcomeMessage('𝗪𝗲𝗹𝗰𝗼𝗺𝗲 𝘁𝗼 𝗩𝗜𝗣 𝗦𝘂𝗠𝗮𝘁𝗿𝗮𝗰𝗶𝘁!');
+        setTimeout(showWelcomeMessage, 3000, '𝗛𝗮𝗽𝗽𝘆 𝗦𝗵𝗼𝗽𝗽𝗶𝗻𝗴 𝗚𝘂𝘆𝘀!🛍'); // Delay second call and provide second message
         });
     // Function dcopy
     function preventCopy(event) {

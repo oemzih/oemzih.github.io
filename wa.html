@@ -3,37 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WhatsApp Button Widget</title>
-    <link rel="stylesheet" href="/home/wa-landing.css"> <script src="/home/wa.js"></script> </head>
+    <title>VIP Sumatracit - Welcome!</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
 <body>
-    <a class="fab fa-whatsapp fa-3x animated infinite rubberBand" href="javascript:void(0);" id="wa-icon" onclick="openModal()" aria-hidden="true">
-        <span class="count">1</span>
-    </a>
+    <script>
+        window.addEventListener('load', () => {
+            // Function to display the welcome message twice
+            function showWelcomeMessage() {
+                Swal.fire({
+                    icon: 'success',
+                    title: '𝗪𝗲𝗹𝗰𝗼𝗺𝗲 𝘁𝗼 𝗩𝗜𝗣 𝗦𝘂𝗠𝗮𝘁𝗿𝗮𝗰𝗶𝘁 !\n𝗛𝗮𝗽𝗽𝘆 𝗦𝗵𝗼𝗽𝗽𝗶𝗻𝗴 !',
+                    toast: true, // Enable toast style
+                    position: 'top-end',
+                    showConfirmButton: false,
+                    timer: 3000,
+                    timerProgressBar: true,
+                });
+            }
 
-    <div id="whatsapp" style="display: none;">
-        <h3 class="title">
-            <span class="wa-title">
-                <i class="fab fa-whatsapp" aria-hidden="true"></i>
-                <b>Kirim WhatsApp!</b>
-            </span>
-            <button class="wa-x" onclick="closeModal()">×</button>
-        </h3>
-        <div class="wa-body">
-            <input class="hubungi" type="hidden" value="08998166066"> <div class="grid-wa">
-                <label>
-                    <i class="fa fa-user-circle" aria-hidden="true"></i>
-                    <input class="nama wa-input bagi" placeholder="Nama Lengkap.." type="text">
-                </label>
-            </div>
-            <div class="mahir">
-                <label>
-                    <i class="fa fa-comment" aria-hidden="true"></i>
-                    <input class="pesan wa-input full" placeholder="Tulis Pesan.." type="text">
-                </label>
-                <a class="submit">Kirim</a>
-            </div>
-        </div>
-    </div>
-
-    </body>
+            // Call the function twice to display the title two times
+            showWelcomeMessage();
+            showWelcomeMessage();
+        });
+    </script>
+</body>
 </html>

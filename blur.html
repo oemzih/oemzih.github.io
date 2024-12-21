@@ -2,30 +2,49 @@
 <html>
 <head>
 <style>
-  .teks {
-    /* Gaya untuk teks normal */
-    font-size: 24px;
-  }
-  .buram {
-    /* Gaya untuk teks buram */
-    filter: blur(5px);
-    opacity: 0.5;
-  }
+  #overlay {
+  transition: opacity 0.3s ease-in-out;
+}
 </style>
 </head>
 <body>
-  <div class="teks" id="myText">Ku kira aku doang yang ganteng, rupanya Jefri Nichol juga</div>
+<p id="teksTarget">Ini adalah teks target</p>
+<div id="overlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5);">
+  <button>Laporkan</button>
+  <button>Blokir</button>
+</div>
 
   <script>
-    const teks = document.getElementById('myText');
+    // ...
+const rect = teksTarget.getBoundingClientRect();
+buttons.style.left = rect.left + 'px';
+buttons.style.top = rect.bottom + 'px';
+// ...
 
-    teks.addEventListener('touchstart', () => {
-      teks.classList.add('buram');
-    });
+    const teksTarget = document.getElementById('teksTarget');
+const overlay = document.getElementById('overlay');
+const buttons = overlay.querySelectorAll('button');
 
-    teks.addEventListener('touchend', () => {
-      teks.classList.remove('buram');
-    });
+teksTarget.addEventListener('contextmenu', showOverlay);
+teksTarget.addEventListener('touchhold', showOverlay);
+
+function showOverlay(event) {
+  event.preventDefault(); // Mencegah konteks menu default
+  overlay.style.display = 'block';
+
+  // Posisikan tombol di sekitar teks (sesuaikan dengan kebutuhan)
+  // Misalnya, menggunakan JavaScript untuk menghitung posisi teks dan menempatkan tombol di bawahnya
+}
+
+// Sembunyikan overlay ketika salah satu tombol diklik atau ketika klik di luar overlay
+buttons.forEach(button => {
+  button.addEventListener('click', hideOverlay);
+});
+overlay.addEventListener('click', hideOverlay);
+
+function hideOverlay() {
+  overlay.style.display = 'none';
+}
   </script>
 </body>
 </html>

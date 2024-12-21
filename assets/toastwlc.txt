@@ -1,0 +1,11 @@
+window.addEventListener('load', () => {
+    Swal.fire({
+        icon: 'success',
+        title: '𝗪𝗲𝗹𝗰𝗼𝗺𝗲 𝘁𝗼 𝗩𝗜𝗣 𝗦𝘂𝗠𝗮𝘁𝗿𝗮𝗰𝗶𝘁 !',
+        toast: true, // Enable toast style
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        });
+        });

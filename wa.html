@@ -10,22 +10,22 @@
 <body>
     <script>
         window.addEventListener('load', () => {
-            // Function to display the welcome message twice
+            // Function to display the welcome message twice with a slight delay
             function showWelcomeMessage() {
                 Swal.fire({
                     icon: 'success',
-                    title: '𝗪𝗲𝗹𝗰𝗼𝗺𝗲 𝘁𝗼 𝗩𝗜𝗣 𝗦𝘂𝗠𝗮𝘁𝗿𝗮𝗰𝗶𝘁 !\n𝗛𝗮𝗽𝗽𝘆 𝗦𝗵𝗼𝗽𝗽𝗶𝗻𝗴 !',
+                    title: '𝗪𝗲𝗹𝗰𝗼𝗺𝗲 𝘁𝗼 𝗩𝗜𝗣 𝗦𝘂𝗺𝗮𝘁𝗿𝗮𝗰𝗶𝘁 !\n𝗛𝗮𝗽𝗽𝘆 𝗦𝗵𝗼𝗽𝗽𝗶𝗻گ !',
                     toast: true, // Enable toast style
                     position: 'top-end',
                     showConfirmButton: false,
-                    timer: 3000,
+                    timer: 3000, // Set timer for individual message
                     timerProgressBar: true,
                 });
             }
 
-            // Call the function twice to display the title two times
+            // Call the function twice with a delay of 1 second for smoother appearance
             showWelcomeMessage();
-            showWelcomeMessage();
+            setTimeout(showWelcomeMessage, 1000); // Delay second call by 1 second
         });
     </script>
 </body>

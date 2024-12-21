@@ -1,29 +1,36 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Tombol Goyang</title>
+  <title>Jam Digital Animasi</title>
+  <style>
+    #clock {
+      font-size: 36px;
+      text-align: center;
+      border: 2px solid black;
+      padding: 10px;
+    }
+  </style>
 </head>
 <body>
-  <button id="myButton">Klik Saya</button>
+  <div id="clock"></div>
 
   <script>
-    const button = document.getElementById('myButton');
+    function showTime() {
+      const date = new Date();
+      const hours = date.getHours();
+      const minutes = date.getMinutes();
+      const seconds = date.getSeconds();
 
-    button.addEventListener('mouseover', () => {
-      button.style.animation = 'shake 0.5s';
-    });
+      let time = hours + ":" + minutes + ":" + seconds;
+      document.getElementById('clock').textContent = time;
 
-    button.addEventListener('mouseout', () => {
-      button.style.animation = 'none';
-    });
-
-    @keyframes shake {
-      0% { transform: translateX(0); }
-      25% { transform: translateX(-10px); }
-      50% { transform: translateX(10px); }
-      75% { transform: translateX(-5px); }
-      100% { transform: translateX(0); }
+      // Efek animasi warna RGB
+      const clockElement = document.getElementById('clock');
+      const randomColor = () => `rgb(${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)})`;
+      clockElement.style.color = randomColor();
     }
+
+    setInterval(showTime, 1000);
   </script>
 </body>
 </html>

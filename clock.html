@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Jam Digital dengan Border Animasi</title>
+  <title>Jam Digital dengan Border Animasi Cepat</title>
   <style>
     #clock {
       font-size: 36px;
       text-align: center;
-      border: 2px solid black; /* Border tetap hitam */
+      border: 1px solid black;
       padding: 10px;
     }
   </style>
@@ -24,13 +24,14 @@
       let time = hours + ":" + minutes + ":" + seconds;
       document.getElementById('clock').textContent = time;
 
-      // Animasi warna border
+      // Animasi warna border sangat cepat
       const clockElement = document.getElementById('clock');
       const randomColor = () => `rgb(${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)})`;
       clockElement.style.borderColor = randomColor();
     }
 
-    setInterval(showTime, 1000);
+    // Ubah interval menjadi 100ms untuk animasi lebih cepat
+    setInterval(showTime, 100);
   </script>
 </body>
 </html>
